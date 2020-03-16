@@ -6,7 +6,7 @@
     <!--
         New Bodysize: 
             Cat, Monkey, Thrumbo
-        New Egg Layers: 
+        New Unfertile Egg Layers: 
             Cassowary, Emu, Iguana, Ostrich, Tortoise, Turkey
         New Food: 
             Elephant
@@ -80,7 +80,7 @@
     ============-->
 
     <Operation Class="PatchOperationAdd">        <!-- Pack Grizzly Bears  -->
-        <xpath>/Defs/ThingDef[defName = "Bear_Grizzly"]/race</xpath>
+        <xpath>/Defs/ThingDef[ Name = "BaseBear"]/race</xpath>
         <value>
             <packAnimal>true</packAnimal>
         </value>
@@ -138,7 +138,7 @@
                 <xpath>/Defs/PawnKindDef[defName = "Caribou"]/lifeStages/li[3]</xpath>
                 <value>
                     <butcherBodyPart>
-                        <bodyPartGroup>HornAttackTool</bodyPartGroup>
+                        <bodyPartGroup>HeadAttackTool</bodyPartGroup>
                         <thing>KKAO_CaribouAntler</thing>
                         <allowFemale>true</allowFemale>
                     </butcherBodyPart>
@@ -151,14 +151,14 @@
         Cassowary
     ============-->
 
-    <Operation Class="PatchOperationAdd">        <!-- Unfertilized cassowary egg -->
+    <Operation Class="PatchOperationAdd">        <!-- Add unfertilized cassowary egg -->
         <xpath>/Defs/ThingDef[defName = "Cassowary"]/comps/li[@Class = "CompProperties_EggLayer"]</xpath>
         <value>
             <eggUnfertilizedDef>EggCassowaryUnfertilized</eggUnfertilizedDef>
         </value>
     </Operation>
 
-    <Operation Class="PatchOperationRemove">        <!-- Unfertilized cassowary egg  -->
+    <Operation Class="PatchOperationRemove">        <!-- Remove limit on unfertilized cassowary egg  -->
         <xpath>/Defs/ThingDef[defName = "Cassowary"]/comps/li[@Class = "CompProperties_EggLayer"]/eggProgressUnfertilizedMax</xpath>
     </Operation>
 
@@ -305,7 +305,7 @@
                 <xpath>/Defs/PawnKindDef[defName = "Elk"]/lifeStages/li[3]</xpath>
                 <value>
                     <butcherBodyPart>
-                        <bodyPartGroup>HornAttackTool</bodyPartGroup>
+                        <bodyPartGroup>HeadAttackTool</bodyPartGroup>
                         <thing>KKAO_ElkAntler</thing>
                         <allowFemale>false</allowFemale>
                     </butcherBodyPart>
@@ -318,14 +318,14 @@
         Emu
     ============-->
 
-    <Operation Class="PatchOperationAdd">        <!-- Unfertilized emu egg -->
+    <Operation Class="PatchOperationAdd">        <!-- Add unfertilized emu egg -->
         <xpath>/Defs/ThingDef[defName = "Emu"]/comps/li[@Class = "CompProperties_EggLayer"]</xpath>
         <value>
             <eggUnfertilizedDef>EggEmuUnfertilized</eggUnfertilizedDef>
         </value>
     </Operation>
 
-    <Operation Class="PatchOperationRemove">        <!-- Unfertilized emu egg  -->
+    <Operation Class="PatchOperationRemove">        <!-- Remove limit on unfertilized emu egg  -->
         <xpath>/Defs/ThingDef[defName = "Emu"]/comps/li[@Class = "CompProperties_EggLayer"]/eggProgressUnfertilizedMax</xpath>
     </Operation>
 
@@ -344,7 +344,7 @@
                 <xpath>/Defs/PawnKindDef[defName = "Gazelle"]/lifeStages/li[3]</xpath>
                 <value>
                     <butcherBodyPart>
-                        <bodyPartGroup>HornAttackTool</bodyPartGroup>
+                        <bodyPartGroup>HeadAttackTool</bodyPartGroup>
                         <thing>KKAO_GazelleHorn</thing>
                         <allowFemale>true</allowFemale>
                     </butcherBodyPart>
@@ -368,7 +368,7 @@
                 <xpath>/Defs/PawnKindDef[defName = "Ibex"]/lifeStages/li[3]</xpath>
                 <value>
                     <butcherBodyPart>
-                        <bodyPartGroup>HornAttackTool</bodyPartGroup>
+                        <bodyPartGroup>HeadAttackTool</bodyPartGroup>
                         <thing>KKAO_IbexHorn</thing>
                         <allowFemale>false</allowFemale>
                     </butcherBodyPart>
@@ -417,14 +417,14 @@
         Iguana
     ============-->
 
-    <Operation Class="PatchOperationAdd">        <!-- Unfertilized iguana egg -->
+    <Operation Class="PatchOperationAdd">        <!-- Add unfertilized iguana egg -->
         <xpath>/Defs/ThingDef[defName = "Iguana"]/comps/li[@Class = "CompProperties_EggLayer"]</xpath>
         <value>
             <eggUnfertilizedDef>EggIguanaUnfertilized</eggUnfertilizedDef>
         </value>
     </Operation>
 
-    <Operation Class="PatchOperationRemove">        <!-- Unfertilized iguana egg  -->
+    <Operation Class="PatchOperationRemove">        <!-- Remove limit on unfertilized iguana egg  -->
         <xpath>/Defs/ThingDef[defName = "Iguana"]/comps/li[@Class = "CompProperties_EggLayer"]/eggProgressUnfertilizedMax</xpath>
     </Operation>
 
@@ -472,14 +472,14 @@
         </operations>
     </Operation>
 
-    <Operation Class="PatchOperationAdd">        <!-- Unfertilized ostrich egg -->
+    <Operation Class="PatchOperationAdd">        <!-- Add unfertilized ostrich egg -->
         <xpath>/Defs/ThingDef[defName = "Ostrich"]/comps/li[@Class = "CompProperties_EggLayer"]</xpath>
         <value>
             <eggUnfertilizedDef>EggOstrichUnfertilized</eggUnfertilizedDef>
         </value>
     </Operation>
 
-    <Operation Class="PatchOperationRemove">        <!-- Unfertilized ostrich egg  -->
+    <Operation Class="PatchOperationRemove">        <!-- Remove limit on unfertilized ostrich egg  -->
         <xpath>/Defs/ThingDef[defName = "Ostrich"]/comps/li[@Class = "CompProperties_EggLayer"]/eggProgressUnfertilizedMax</xpath>
     </Operation>
 
@@ -595,14 +595,14 @@
         Tortoise
     ============-->
 
-    <Operation Class="PatchOperationAdd">        <!-- Unfertilized tortoise egg -->
+    <Operation Class="PatchOperationAdd">        <!-- Add unfertilized tortoise egg -->
         <xpath>/Defs/ThingDef[defName = "Tortoise"]/comps/li[@Class = "CompProperties_EggLayer"]</xpath>
         <value>
             <eggUnfertilizedDef>EggTortoiseUnfertilized</eggUnfertilizedDef>
         </value>
     </Operation>
 
-    <Operation Class="PatchOperationRemove">        <!-- Unfertilized tortoise egg  -->
+    <Operation Class="PatchOperationRemove">        <!-- Remove limit on unfertilized tortoise egg  -->
         <xpath>/Defs/ThingDef[defName = "Tortoise"]/comps/li[@Class = "CompProperties_EggLayer"]/eggProgressUnfertilizedMax</xpath>
     </Operation>
 
@@ -617,14 +617,14 @@
         </value>
     </Operation>
 
-    <Operation Class="PatchOperationAdd">        <!-- Unfertilized turkey egg -->
+    <Operation Class="PatchOperationAdd">        <!-- Add unfertilized turkey egg -->
         <xpath>/Defs/ThingDef[defName = "Turkey"]/comps/li[@Class = "CompProperties_EggLayer"]</xpath>
         <value>
             <eggUnfertilizedDef>EggTurkeyUnfertilized</eggUnfertilizedDef>
         </value>
     </Operation>
 
-    <Operation Class="PatchOperationRemove">        <!-- Unfertilized turkey egg  -->
+    <Operation Class="PatchOperationRemove">        <!-- Remove limit on unfertilized turkey egg  -->
         <xpath>/Defs/ThingDef[defName = "Turkey"]/comps/li[@Class = "CompProperties_EggLayer"]/eggProgressUnfertilizedMax</xpath>
     </Operation>
 
