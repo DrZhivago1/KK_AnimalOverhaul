@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+
+	<Operation Class="PatchOperationAdd"> <!-- Add animals to AridShrubland allowed PackAnimals -->
+		<xpath>/Defs/BiomeDef[defName = "AridShrubland"]/allowedPackAnimals</xpath>
+		<value>
+			<li>Rhinoceros</li>
+			<li>Bear_Grizzly</li>
+			<li>Ostrich</li>
+			<li>Cow</li>
+			<li>Warg</li>
+		</value>
+	</Operation>
+
+	<Operation Class="PatchOperationAdd"> <!-- Add animals to Desert allowed PackAnimals -->
+		<xpath>/Defs/BiomeDef[defName = "Desert"]/allowedPackAnimals</xpath>
+		<value>
+			<li>Rhinoceros</li>
+			<li>Elephant</li>
+			<li>Alpaca</li>
+			<li>Bear_Grizzly</li>
+			<li>Ostrich</li>
+			<li>Cow</li>
+			<li>Warg</li>
+		</value>
+	</Operation>
+
+	<Operation Class="PatchOperationAdd"> <!-- Add animals to ExtremeDesert allowed PackAnimals -->
+		<xpath>/Defs/BiomeDef[defName = "ExtremeDesert"]/allowedPackAnimals</xpath>
+		<value>
+			<li>Rhinoceros</li>
+			<li>Elephant</li>
+			<li>Ostrich</li>
+		</value>
+	</Operation>
+
+	<Operation Class="PatchOperationAdd"> <!-- Add animals to BorealForest allowed PackAnimals -->
+		<xpath>/Defs/BiomeDef[defName = "BorealForest"]/allowedPackAnimals</xpath>
+		<value>
+			<li>Alpaca</li>
+			<li>Bear_Grizzly</li>
+			<li>Bear_Polar</li>
+			<li>Caribou</li>
+			<li>Elk</li>
+			<li>Cow</li>
+			<li>Warg</li>
+		</value>
+	</Operation>
+
+	<Operation Class="PatchOperationAdd"> <!-- Add animals to Tundra allowed PackAnimals -->
+		<xpath>/Defs/BiomeDef[defName = "Tundra"]/allowedPackAnimals</xpath>
+		<value>
+			<li>Alpaca</li>
+			<li>Bear_Grizzly</li>
+			<li>Bear_Polar</li>
+			<li>Caribou</li>
+			<li>Elk</li>
+			<li>Warg</li>
+		</value>
+	</Operation>
+
+	<Operation Class="PatchOperationAdd"> <!-- Add animals to ColdBog allowed PackAnimals -->
+		<xpath>/Defs/BiomeDef[defName = "ColdBog"]/allowedPackAnimals</xpath>
+		<value>
+			<li>Alpaca</li>
+			<li>Bear_Grizzly</li>
+			<li>Bear_Polar</li>
+			<li>Caribou</li>
+			<li>Elk</li>
+			<li>Warg</li>
+		</value>
+	</Operation>
+
+	<Operation Class="PatchOperationAdd"> <!-- Add animals to IceSheet allowed PackAnimals -->
+		<xpath>/Defs/BiomeDef[defName = "IceSheet"]/allowedPackAnimals</xpath>
+		<value>
+			<li>Bear_Polar</li>
+			<li>Caribou</li>
+			<li>Elk</li>
+			<li>Warg</li>
+		</value>
+	</Operation>
+
+	<Operation Class="PatchOperationAdd"> <!-- Add animals to SeaIce allowed PackAnimals -->
+		<xpath>/Defs/BiomeDef[defName = "SeaIce"]/allowedPackAnimals</xpath>
+		<value>
+			<li>Bear_Polar</li>
+			<li>Caribou</li>
+		</value>
+	</Operation>
+
+	<Operation Class="PatchOperationAdd"> <!-- Add animals to TemperateForest allowed PackAnimals -->
+		<xpath>/Defs/BiomeDef[defName = "TemperateForest"]/allowedPackAnimals</xpath>
+		<value>
+			<li>Rhinoceros</li>
+			<li>Elephant</li>
+			<li>Bear_Grizzly</li>
+			<li>Bear_Polar</li>
+			<li>Caribou</li>
+			<li>Elk</li>
+			<li>Cow</li>
+			<li>Ostrich</li>
+			<li>Warg</li>
+		</value>
+	</Operation>
+
+	<Operation Class="PatchOperationAdd"> <!-- Add animals to TemperateSwamp allowed PackAnimals -->
+		<xpath>/Defs/BiomeDef[defName = "TemperateSwamp"]/allowedPackAnimals</xpath>
+		<value>
+			<li>Rhinoceros</li>
+			<li>Elephant</li>
+			<li>Bear_Grizzly</li>
+			<li>Bear_Polar</li>
+			<li>Caribou</li>
+			<li>Elk</li>
+			<li>Cow</li>
+			<li>Ostrich</li>
+			<li>Warg</li>
+		</value>
+	</Operation>
+
+	<Operation Class="PatchOperationAdd"> <!-- Add animals to TropicalRainforest allowed PackAnimals -->
+		<xpath>/Defs/BiomeDef[defName = "TropicalRainforest"]/allowedPackAnimals</xpath>
+		<value>
+			<li>Rhinoceros</li>
+			<li>Bear_Grizzly</li>
+			<li>Elk</li>
+			<li>Ostrich</li>
+			<li>Cow</li>
+			<li>Warg</li>
+		</value>
+	</Operation>
+
+	<Operation Class="PatchOperationAdd"> <!-- Add animals to TropicalSwamp allowed PackAnimals -->
+		<xpath>/Defs/BiomeDef[defName = "TropicalSwamp"]/allowedPackAnimals</xpath>
+		<value>
+			<li>Rhinoceros</li>
+			<li>Bear_Grizzly</li>
+			<li>Elk</li>
+			<li>Ostrich</li>
+			<li>Cow</li>
+			<li>Warg</li>
+		</value>
+	</Operation>
+
+
+</Patch>

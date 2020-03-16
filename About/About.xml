@@ -2,12 +2,14 @@
 <ModMetaData>
     <name>Vanilla Animals Overhaul Reloaded</name>
     <author>kaptain_kavern | Dr_Zhivago</author>
-    <url>https://ludeon.com/forums/index.php?topic=34173.0</url>
+    <url>https://github.com/DrZhivago1/KK_AnimalOverhaul</url>
     <supportedVersions>
         <li>1.0</li>
+        <li>1.1</li>
     </supportedVersions>
+	<packageId>drzhivago.vanillaanimalsoverhaulreloaded</packageId>
     <description>
-Dr_Zhivago has updated this mod further for RimWorld v1.0, upon seeing that Ludeon forum user "Caffeine Zombie" took the first and largest step to updating.
+Dr_Zhivago has updated this mod further for RimWorld v1.0 and v1.1.
 
 My Credits:
 	-kaptain_kavern for the original mod

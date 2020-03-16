@@ -1,0 +1,242 @@
+<Patch>
+
+    <!--=============== Allow Black Rhino from ACP to be pack animal ====================-->
+    <Operation Class="PatchOperationFindMod">
+        <mods>
+            <li>AnimalCollabProj</li>
+        </mods>
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+                <li Class="PatchOperationTest">
+                    <xpath>Defs/ThingDef[defName = "ACPBlackRhinoceros"]/race/packAnimal</xpath>
+                    <success>Invert</success>
+                </li>
+                <li Class="PatchOperationAdd">                    <!-- Pack Animal Collab Project Black Rhino -->
+                    <xpath>Defs/ThingDef[defName = "ACPBlackRhinoceros"]/race</xpath>
+                    <value>
+                        <packAnimal>true</packAnimal>
+                    </value>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+
+
+
+    <!--=============== Add horns ====================-->
+
+
+    <!--=============== Bison horn ====================-->
+
+    <Operation Class="PatchOperationFindMod">
+        <mods>
+            <li>AnimalCollabProj</li>
+        </mods>
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+                <li Class="PatchOperationAdd">
+                    <xpath>Defs</xpath>
+                    <value>
+                        <ThingDef ParentName="KKAO_HornBase">                            <!-- Horn Animal Collab Project Bison -->
+                            <defName>KKAO_ACPBisonHorn</defName>
+                            <label>bison horn</label>
+                            <description>A bison horn. Durable and somewhat valuable. Unwieldy as a weapon. Good for carrying mead and gunpowder.</description>
+                            <graphicData>
+                                <texPath>Things/Item/Special/BisonHorn</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <equippedAngleOffset>15</equippedAngleOffset>
+                            <statBases>
+                                <MarketValue>50</MarketValue>
+                                <MaxHitPoints>150</MaxHitPoints>
+                                <Mass>1.5</Mass>                                <!-- ElephantTusk's mass = 1.8 -->
+                                <Flammability>1.0</Flammability>
+                                <DeteriorationRate>0.5</DeteriorationRate>
+                            </statBases>
+                            <resourceReadoutPriority>Middle</resourceReadoutPriority>
+                            <stackLimit>10</stackLimit>
+                            <tools>
+                                <li>
+                                    <label>point</label>
+                                    <capacities>
+                                        <li>Scratch</li>
+                                        <li>Stab</li>
+                                    </capacities>
+                                    <power>9</power>
+                                    <cooldownTime>2.4</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>base</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>8</power>
+                                    <cooldownTime>2.4</cooldownTime>
+                                    <chanceFactor>0.5</chanceFactor>
+                                </li>
+                            </tools>
+                        </ThingDef>
+                    </value>
+                </li>
+
+                <li Class="PatchOperationReplace">                    <!-- switch to modded body for bison-->
+                    <xpath>Defs/ThingDef[defName = "ACPBison"]/race/body</xpath>
+                    <value>
+                        <body>KKAO_QuadrupedAnimalWithHoovesAndHorns</body>
+                    </value>
+                </li>
+
+                <li Class="PatchOperationAdd">                    <!-- Bison drop horns  -->
+                    <xpath>Defs/PawnKindDef[defName = "ACPBison"]/lifeStages/li[3]</xpath>
+                    <value>
+                        <butcherBodyPart>
+                            <bodyPartGroup>HornAttackTool</bodyPartGroup>
+                            <thing>KKAO_ACPBisonHorn</thing>
+                            <allowFemale>true</allowFemale>
+                        </butcherBodyPart>
+                    </value>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+
+    <!--=============== Black Rhino horn ====================-->
+
+    <Operation Class="PatchOperationFindMod">
+        <mods>
+            <li>AnimalCollabProj</li>
+        </mods>
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+                <li Class="PatchOperationAdd">                    <!-- Horn Animal Collab Project Black Rhino -->
+                    <xpath>Defs</xpath>
+                    <value>
+                        <ThingDef ParentName="KKAO_HornBase">
+                            <defName>KKAO_ACPBlackRhinocerosHorn</defName>
+                            <label>black rhinoceros horn</label>
+                            <description>A black rhinoceros' horn. Very durable and valuable. Somewhat unwieldy as a weapon.</description>
+                            <graphicData>
+                                <texPath>Things/Item/Special/BlackRhinoHorn</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <equippedAngleOffset>-20</equippedAngleOffset>
+                            <statBases>
+                                <MarketValue>125</MarketValue>
+                                <MaxHitPoints>150</MaxHitPoints>
+                                <Mass>1.8</Mass>                                <!-- ElephantTusk's mass = 1.8 -->
+                                <Flammability>1.0</Flammability>
+                                <DeteriorationRate>0.5</DeteriorationRate>
+                            </statBases>
+                            <resourceReadoutPriority>Middle</resourceReadoutPriority>
+                            <stackLimit>10</stackLimit>
+                            <tools>
+                                <li>
+                                    <label>point</label>
+                                    <capacities>
+                                        <li>Scratch</li>
+                                        <li>Stab</li>
+                                    </capacities>
+                                    <power>15</power>
+                                    <cooldownTime>2.4</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>base</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>8</power>
+                                    <cooldownTime>2.4</cooldownTime>
+                                    <chanceFactor>0.5</chanceFactor>
+                                </li>
+                            </tools>
+                        </ThingDef>
+                    </value>
+                </li>
+
+                <li Class="PatchOperationAdd">                    <!-- Black Rhino drop horn  -->
+                    <xpath>Defs/PawnKindDef[defName = "ACPBlackRhinoceros"]/lifeStages/li[3]</xpath>
+                    <value>
+                        <butcherBodyPart>
+                            <bodyPartGroup>HornAttackTool</bodyPartGroup>
+                            <thing>KKAO_ACPBlackRhinocerosHorn</thing>
+                            <allowFemale>true</allowFemale>
+                        </butcherBodyPart>
+                    </value>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+
+    <!--=============== Wooly Rhino Horn ====================-->
+
+
+    <Operation Class="PatchOperationFindMod">
+        <mods>
+            <li>AnimalCollabProj</li>
+        </mods>
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+                <li Class="PatchOperationAdd">                    <!-- Horn Animal Collab Project Wooly Rhino -->
+                    <xpath>Defs</xpath>
+                    <value>
+                        <ThingDef ParentName="KKAO_HornBase">
+                            <defName>KKAO_ACPWoolyRhinocerosHorn</defName>
+                            <label>wooly rhinoceros horn</label>
+                            <description>A wooly rhinoceros' horn. Very durable and valuable. Somewhat unwieldy as a weapon.</description>
+                            <graphicData>
+                                <texPath>Things/Item/Special/WoolyRhinoHorn</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <equippedAngleOffset>-10</equippedAngleOffset>
+                            <statBases>
+                                <MarketValue>150</MarketValue>
+                                <MaxHitPoints>150</MaxHitPoints>
+                                <Mass>2</Mass>                                <!-- ElephantTusk's mass = 1.8 -->
+                                <Flammability>1.0</Flammability>
+                                <DeteriorationRate>0.5</DeteriorationRate>
+                            </statBases>
+                            <resourceReadoutPriority>Middle</resourceReadoutPriority>
+                            <stackLimit>10</stackLimit>
+                            <tools>
+                                <li>
+                                    <label>point</label>
+                                    <capacities>
+                                        <li>Scratch</li>
+                                        <li>Stab</li>
+                                    </capacities>
+                                    <power>15</power>
+                                    <cooldownTime>2.4</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>base</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>10</power>
+                                    <cooldownTime>2.4</cooldownTime>
+                                    <chanceFactor>0.5</chanceFactor>
+                                </li>
+                            </tools>
+                        </ThingDef>
+                    </value>
+                </li>
+
+                <li Class="PatchOperationAdd">                    <!-- Wooly Rhino drop horn  -->
+                    <xpath>Defs/PawnKindDef[defName = "ACPWoolyRhino"]/lifeStages/li[3]</xpath>
+                    <value>
+                        <butcherBodyPart>
+                            <bodyPartGroup>HornAttackTool</bodyPartGroup>
+                            <thing>KKAO_ACPWoolyRhinocerosHorn</thing>
+                            <allowFemale>true</allowFemale>
+                        </butcherBodyPart>
+                    </value>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+
+</Patch>

@@ -1,0 +1,77 @@
+<Defs>
+
+
+  <ThingDef ParentName="MealBase">
+    <defName>KKAO_ThrumboMilk</defName>
+    <label>thrumbo milk</label>
+    <description>This rare milk is a delicacy among few lucky tribals, and the Glitter World nobility. A mildly inebriating stimuli is associated with the milk.</description>
+    <graphicData>
+      <texPath>Item/ThrumboMilk</texPath>
+      <graphicClass>Graphic_StackCount</graphicClass>
+    </graphicData>
+    <stackLimit>25</stackLimit>
+    <statBases>
+      <Mass>0.5</Mass>
+      <Nutrition>0.9</Nutrition>
+      <MarketValue>20</MarketValue>
+      <MaxHitPoints>50</MaxHitPoints>
+    </statBases>
+    <ingestible>
+      <preferability>MealLavish</preferability>
+      <tasteThought>AteLavishMeal</tasteThought>
+      <ingestEffect>EatVegetarian</ingestEffect>
+      <ingestSound>Ingest_Beer</ingestSound>
+      <outcomeDoers>
+        <li Class="IngestionOutcomeDoer_GiveHediff">
+          <hediffDef>KKAO_ThrumboMilkNourish</hediffDef>
+          <severity>1.0</severity>
+        </li>
+      </outcomeDoers>
+    </ingestible>
+    <thingCategories>
+      <li>AnimalProductRaw</li>
+    </thingCategories>
+    <tradeability>Buyable</tradeability>
+    <comps>
+      <li Class="CompProperties_Rottable">
+        <daysToRotStart>5</daysToRotStart>        <!-- short rot time, you want to make them as needed not store them -->
+        <rotDestroys>true</rotDestroys>
+      </li>
+    </comps>
+  </ThingDef>
+
+  <HediffDef>
+    <defName>KKAO_ThrumboMilkNourish</defName>
+    <hediffClass>HediffWithComps</hediffClass>
+    <label>thrumbo milk</label>
+    <description>This rare milk is a delicacy among few lucky tribals, and the Glitter World nobility. A mildly inebriating stimuli is associated with the milk.</description>
+    <defaultLabelColor>(1,0,0.5)</defaultLabelColor>
+    <scenarioCanAdd>true</scenarioCanAdd>
+    <maxSeverity>1.0</maxSeverity>
+    <isBad>false</isBad>
+    <comps>
+      <li Class="HediffCompProperties_SeverityPerDay">
+        <severityPerDay>-1.0</severityPerDay>
+      </li>
+    </comps>
+    <stages>
+      <li>
+        <capMods>
+          <li>
+            <capacity>Consciousness</capacity>
+            <offset>-0.05</offset>
+          </li>
+          <li>
+            <capacity>BloodFiltration</capacity>
+            <offset>0.1</offset>
+          </li>
+          <li>
+            <capacity>BloodPumping</capacity>
+            <offset>0.1</offset>
+          </li>
+        </capMods>
+      </li>
+    </stages>
+  </HediffDef>
+
+</Defs>

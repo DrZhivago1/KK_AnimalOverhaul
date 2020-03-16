@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <ThingDef ParentName="WoolBase">
+    <defName>KKAO_ThrumboWool</defName>
+    <label>thrumbo wool</label>
+    <description>Thrumbo wool's long fibers make it very strong. It is very warm.</description>
+    <graphicData>
+      <color>(233,233,233)</color>
+    </graphicData>
+    <statBases>
+      <MaxHitPoints>150</MaxHitPoints>
+      <MarketValue>5</MarketValue>
+      <Mass>0.033</Mass>
+      <Flammability>0.3</Flammability>
+      <DeteriorationRate>3.3</DeteriorationRate>
+      <StuffPower_Armor_Sharp>0.50</StuffPower_Armor_Sharp>
+      <StuffPower_Armor_Blunt>0.33</StuffPower_Armor_Blunt>
+      <StuffPower_Armor_Heat>1.00</StuffPower_Armor_Heat>
+      <StuffPower_Insulation_Cold>30</StuffPower_Insulation_Cold>
+      <StuffPower_Insulation_Heat>30</StuffPower_Insulation_Heat>
+    </statBases>
+    <stuffProps>
+      <color>(233,233,233)</color>
+      <commonality>0.025</commonality>
+      <statFactors>
+        <Flammability>0.33</Flammability>
+        <MarketValue>1.33</MarketValue>
+        <MaxHitPoints>1.5</MaxHitPoints>
+        <WorkToBuild>3.3</WorkToBuild>
+        <WorkToMake>3.3</WorkToMake>
+      </statFactors>
+    </stuffProps>
+  </ThingDef>
+
+  <ThingDef ParentName="WoolBase">
+    <defName>KKAO_WoolIbex</defName>
+    <label>ibex wool</label>
+    <description>Coarse, and hard to shear. Ibex wool is not the best wool out there, but it's better than nothing.</description>
+    <graphicData>
+      <color>(153,129,113)</color>
+    </graphicData>
+    <statBases>
+      <MarketValue>2</MarketValue>
+      <StuffPower_Insulation_Cold>20</StuffPower_Insulation_Cold>
+      <StuffPower_Insulation_Heat>20</StuffPower_Insulation_Heat>
+    </statBases>
+    <stuffProps>
+      <color>(153,129,113)</color>
+    </stuffProps>
+  </ThingDef>
+
+</Defs>
