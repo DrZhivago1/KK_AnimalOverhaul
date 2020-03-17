@@ -1,4 +1,4 @@
-I have updated this mod further for RimWorld v1.0, upon seeing that Ludeon user "Caffeine Zombie" took the first and largest step to updating. A collection of patches and tweaks regarding animals. Horns, pack animals, and Thrumbo upgrades.
+I have updated this mod further for RimWorld, upon seeing that Ludeon user "Caffeine Zombie" took the first and largest step to updating. A collection of patches and tweaks regarding animals. Horns, pack animals, and Thrumbo upgrades.
  
 My Credits:
 - kaptain_kavern for the original mod.
