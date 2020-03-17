@@ -21,7 +21,7 @@
         New Nuzzle:
             Thrumbo
         New Pack Animals: 
-            Polar Bear, Grizzly Bear, Caribou, Cow, Deer, Dogs[Husky, LabradorRetriever], Elk, Ostrich, Rhino, Thrumbo, Warg, Wolves[All]
+            Bears[All], Caribou, Cow, Deer, Dogs[Husky, LabradorRetriever], Elk, Ostrich, Rhino, Thrumbo, Warg, Wolves[All]
         New Shearable: 
             Ibex, Thrumbo
         New Wildness: 
@@ -79,15 +79,8 @@
         Bears
     ============-->
 
-    <Operation Class="PatchOperationAdd">        <!-- Pack Grizzly Bears  -->
-        <xpath>/Defs/ThingDef[ Name = "BaseBear"]/race</xpath>
-        <value>
-            <packAnimal>true</packAnimal>
-        </value>
-    </Operation>
-
-    <Operation Class="PatchOperationAdd">        <!-- Pack Polar Bears  -->
-        <xpath>/Defs/ThingDef[defName = "Bear_Polar"]/race</xpath>
+    <Operation Class="PatchOperationAdd">        <!-- Pack Bears  -->
+        <xpath>/Defs/ThingDef[ @Name = "BaseBear"]/race</xpath>
         <value>
             <packAnimal>true</packAnimal>
         </value>
