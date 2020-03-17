@@ -11,6 +11,7 @@ Original Mod Author's Thanks/Credits:
 - Most Horns/Antlers graphics were made by Coercion originally for the TropiCKAPP Rainforest mod
 - Also Mehni for pointing me to an error with the changes I made with cats behavior changes
 
+_[Changelog](https://github.com/DrZhivago1/KK_AnimalOverhaul/wiki/Changelog)_
 
 _[Link to Steam](https://steamcommunity.com/sharedfiles/filedetails/?id=1588681499)_
 
