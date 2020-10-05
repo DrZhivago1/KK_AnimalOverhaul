@@ -3,7 +3,7 @@ I have updated this mod further for RimWorld, upon seeing that Ludeon user "Caff
 My Credits:
 - kaptain_kavern for the original mod.
 - 🦉 owl for Westerado compatibility
-- Ludeon Forum user "Caffeine Zombie" for the original RimWorld v1.0 update
+- Ludeon Forum user "Caffeine Zombie" for the continued mod support and ideas
 - EagleCall for GitHub edits.
 
 Original Mod Author's Thanks/Credits:
