@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+
+	<Operation Class="PatchOperationAdd">		<!-- Add animals to Outlander faction carriers -->
+		<xpath>/Defs/FactionDef[@Name="OutlanderFactionBase"]/pawnGroupMakers/li[kindDef = "Trader"]/carriers</xpath>
+		<value>
+			<Cow>6</Cow>
+			<Caribou>3</Caribou>
+			<Elk>3</Elk>
+			<Warg>2</Warg>
+			<Rhinoceros>1</Rhinoceros>
+			<Bear_Grizzly>1</Bear_Grizzly>
+			<Bear_Polar>1</Bear_Polar>
+			<Ostrich>1</Ostrich>
+		</value>
+	</Operation>
+
+	<Operation Class="PatchOperationAdd">		<!-- Add animals to Tribe faction carriers -->
+		<xpath>/Defs/FactionDef[@Name="TribeBase"]/pawnGroupMakers/li[kindDef = "Trader"]/carriers</xpath>
+		<value>
+			<Cow>4</Cow>
+			<Rhinoceros>2</Rhinoceros>
+			<Bear_Grizzly>2</Bear_Grizzly>
+			<Bear_Polar>1</Bear_Polar>
+			<Caribou>4</Caribou>
+			<Elk>4</Elk>
+			<Ostrich>4</Ostrich>
+			<Warg>2</Warg>
+		</value>
+	</Operation>
+
+</Patch>

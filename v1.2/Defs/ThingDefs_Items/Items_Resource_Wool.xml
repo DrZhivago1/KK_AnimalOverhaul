@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <ThingDef ParentName="WoolBase">
+    <defName>KKAO_ThrumboWool</defName>
+    <label>thrumbo wool</label>
+    <description>Thrumbo wool's long fibers make it very strong. It is very warm.</description>
+    <graphicData>
+      <color>(233,233,233)</color>
+    </graphicData>
+    <statBases>
+      <MaxHitPoints>150</MaxHitPoints>
+      <MarketValue>5</MarketValue>
+      <Mass>0.033</Mass>
+      <Flammability>0.3</Flammability>
+      <DeteriorationRate>3.3</DeteriorationRate>
+      <StuffPower_Armor_Sharp>0.50</StuffPower_Armor_Sharp>
+      <StuffPower_Armor_Blunt>0.33</StuffPower_Armor_Blunt>
+      <StuffPower_Armor_Heat>1.00</StuffPower_Armor_Heat>
+      <StuffPower_Insulation_Cold>30</StuffPower_Insulation_Cold>
+      <StuffPower_Insulation_Heat>30</StuffPower_Insulation_Heat>
+    </statBases>
+    <stuffProps>
+      <color>(233,233,233)</color>
+      <commonality>0.025</commonality>
+      <statFactors>
+        <Flammability>0.33</Flammability>
+        <MarketValue>1.33</MarketValue>
+        <MaxHitPoints>1.5</MaxHitPoints>
+        <WorkToBuild>3.3</WorkToBuild>
+        <WorkToMake>3.3</WorkToMake>
+      </statFactors>
+    </stuffProps>
+  </ThingDef>
+
+  <ThingDef ParentName="WoolBase">
+    <defName>KKAO_WoolIbex</defName>
+    <label>ibex wool</label>
+    <description>Coarse, and hard to shear. Ibex wool is not the best wool out there, but it's better than nothing.</description>
+    <graphicData>
+      <color>(153,129,113)</color>
+    </graphicData>
+    <statBases>
+      <MarketValue>2</MarketValue>
+      <StuffPower_Insulation_Cold>20</StuffPower_Insulation_Cold>
+      <StuffPower_Insulation_Heat>20</StuffPower_Insulation_Heat>
+    </statBases>
+    <stuffProps>
+      <color>(153,129,113)</color>
+    </stuffProps>
+  </ThingDef>
+  
+  <ThingDef ParentName="WoolBase">
+    <defName>KKAO_WoolCamel</defName>
+    <label>camelhair</label>
+    <description>Camelhair clothing is usually worn by desert travelers to protect them from the heat. It provides excellent heat insulation due to its thermostatic properties.</description>
+    <graphicData>
+      <color>(220,179,132)</color>
+    </graphicData>
+    <statBases>
+      <StuffPower_Insulation_Cold>18</StuffPower_Insulation_Cold>
+      <StuffPower_Insulation_Heat>26</StuffPower_Insulation_Heat>
+    </statBases>
+    <stuffProps>
+      <color>(220,179,132)</color>
+    </stuffProps>
+  </ThingDef>
+  
+  <ThingDef ParentName="WoolBase">
+    <defName>KKAO_WoolYak</defName>
+    <label>yak wool</label>
+    <description>Remarkably warm wool coat explains how yaks survive extreme cold temperatures. Just bear in mind that it also makes yaks prone to heat exhaustion.</description>
+    <graphicData>
+		<color>(77,69,66)</color>
+    </graphicData>	
+	<statBases>
+		  <StuffPower_Insulation_Cold>46</StuffPower_Insulation_Cold>
+		  <StuffPower_Insulation_Heat>8</StuffPower_Insulation_Heat>
+    </statBases>	
+    <stuffProps>
+	  <color>(77,69,66)</color>
+	</stuffProps>
+  </ThingDef>
+
+</Defs>

@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+
+	<Operation Class="PatchOperationSequence">
+		<success>Always</success>
+		<operations>
+			<li Class="PatchOperationTest">
+				<xpath>/Defs/ThingDef[defName="RhinoHorn_Westerado"]</xpath>
+				<success>Invert</success>
+			</li>
+			<li Class="PatchOperationInsert">
+				<xpath>/Defs/ThingDef[@Name = "VAOR_HornInsertion"]</xpath>
+				<order>Prepend</order>
+				<value>
+
+					<!--============= Caribou Antler ==================-->
+
+					<ThingDef ParentName="KKAO_HornBase">
+						<defName>KKAO_CaribouAntler</defName>
+						<label>caribou antler</label>
+						<description>A caribou's antler. It's valuable in most markets. This is a trophy.</description>
+						<graphicData>
+							<texPath>Things/Item/Special/CaribouAntler</texPath>
+							<graphicClass>Graphic_Single</graphicClass>
+						</graphicData>
+						<equippedAngleOffset>90</equippedAngleOffset>
+						<statBases>
+							<MarketValue>20</MarketValue>
+							<MaxHitPoints>150</MaxHitPoints>
+							<Mass>2</Mass>
+							<Flammability>1.0</Flammability>
+							<DeteriorationRate>0.4</DeteriorationRate>
+						</statBases>
+						<resourceReadoutPriority>Middle</resourceReadoutPriority>
+						<stackLimit>10</stackLimit>
+						<tools>
+							<li>
+								<label>point</label>
+								<capacities>
+									<li>Scratch</li>
+									<li>Stab</li>
+								</capacities>
+								<power>13</power>
+								<cooldownTime>2.4</cooldownTime>
+							</li>
+							<li>
+								<label>base</label>
+								<capacities>
+									<li>Blunt</li>
+								</capacities>
+								<power>3</power>
+								<cooldownTime>2.4</cooldownTime>
+								<chanceFactor>0.5</chanceFactor>
+							</li>
+						</tools>
+					</ThingDef>
+
+					<!--=============== Deer Antler ===================-->
+
+					<ThingDef ParentName="KKAO_HornBase">
+						<defName>KKAO_DeerAntler</defName>
+						<label>deer antler</label>
+						<description>A deer's antler. It's valuable in most markets. This is a trophy.</description>
+						<graphicData>
+							<texPath>Things/Item/Special/DeerAntler</texPath>
+							<graphicClass>Graphic_Single</graphicClass>
+						</graphicData>
+						<equippedAngleOffset>90</equippedAngleOffset>
+						<statBases>
+							<MarketValue>15</MarketValue>
+							<MaxHitPoints>150</MaxHitPoints>
+							<Mass>0.8</Mass>
+							<Flammability>1.0</Flammability>
+							<DeteriorationRate>0.4</DeteriorationRate>
+						</statBases>
+						<resourceReadoutPriority>Middle</resourceReadoutPriority>
+						<stackLimit>10</stackLimit>
+						<tools>
+							<li>
+								<label>point</label>
+								<capacities>
+									<li>Scratch</li>
+									<li>Stab</li>
+								</capacities>
+								<power>8</power>
+								<cooldownTime>2</cooldownTime>
+							</li>
+							<li>
+								<label>base</label>
+								<capacities>
+									<li>Blunt</li>
+								</capacities>
+								<power>4</power>
+								<cooldownTime>2</cooldownTime>
+								<chanceFactor>0.5</chanceFactor>
+							</li>
+						</tools>
+					</ThingDef>
+
+					<!--=============== Elk Antler ====================-->
+
+					<ThingDef ParentName="KKAO_HornBase">
+						<defName>KKAO_ElkAntler</defName>
+						<label>elk antler</label>
+						<description>An elk's antler. It's valuable in most markets. This is a trophy.</description>
+						<graphicData>
+							<texPath>Things/Item/Special/ElkAntler</texPath>
+							<graphicClass>Graphic_Single</graphicClass>
+						</graphicData>
+						<equippedAngleOffset>90</equippedAngleOffset>
+						<statBases>
+							<MarketValue>20</MarketValue>
+							<MaxHitPoints>150</MaxHitPoints>
+							<Mass>0.8</Mass>
+							<Flammability>1.0</Flammability>
+							<DeteriorationRate>0.4</DeteriorationRate>
+						</statBases>
+						<resourceReadoutPriority>Middle</resourceReadoutPriority>
+						<stackLimit>10</stackLimit>
+						<tools>
+							<li>
+								<label>point</label>
+								<capacities>
+									<li>Scratch</li>
+									<li>Stab</li>
+								</capacities>
+								<power>9</power>
+								<cooldownTime>2.2</cooldownTime>
+							</li>
+							<li>
+								<label>base</label>
+								<capacities>
+									<li>Blunt</li>
+								</capacities>
+								<power>8</power>
+								<cooldownTime>2.2</cooldownTime>
+								<chanceFactor>0.5</chanceFactor>
+							</li>
+						</tools>
+					</ThingDef>
+
+					<!--============== Gazelle horn ===================-->
+
+					<ThingDef ParentName="KKAO_HornBase">
+						<defName>KKAO_GazelleHorn</defName>
+						<label>gazelle horn</label>
+						<description>A gazelle's horn. It's valuable in most markets. This is a trophy.</description>
+						<graphicData>
+							<texPath>Things/Item/Special/GazelleHorn</texPath>
+							<graphicClass>Graphic_Single</graphicClass>
+						</graphicData>
+						<equippedAngleOffset>90</equippedAngleOffset>
+						<statBases>
+							<MarketValue>20</MarketValue>
+							<MaxHitPoints>100</MaxHitPoints>
+							<Mass>0.8</Mass>							<!-- ElephantTusk's mass = 1.8 -->
+							<Flammability>1.0</Flammability>
+							<DeteriorationRate>0.4</DeteriorationRate>
+						</statBases>
+						<resourceReadoutPriority>Middle</resourceReadoutPriority>
+						<stackLimit>10</stackLimit>
+						<tools>
+							<li>
+								<label>point</label>
+								<capacities>
+									<li>Scratch</li>
+									<li>Stab</li>
+								</capacities>
+								<power>10</power>
+								<cooldownTime>1.8</cooldownTime>
+							</li>
+							<li>
+								<label>base</label>
+								<capacities>
+									<li>Blunt</li>
+								</capacities>
+								<power>5</power>
+								<cooldownTime>1.8</cooldownTime>
+								<chanceFactor>0.5</chanceFactor>
+							</li>
+						</tools>
+					</ThingDef>
+
+					<!--================ Ibex horn ====================-->
+
+					<ThingDef ParentName="KKAO_HornBase">
+						<defName>KKAO_IbexHorn</defName>
+						<label>ibex horn</label>
+						<description>An ibex's horn. It's valuable in most markets. This is a trophy.</description>
+						<graphicData>
+							<texPath>Things/Item/Special/IbexHorn</texPath>
+							<graphicClass>Graphic_Single</graphicClass>
+						</graphicData>
+						<equippedAngleOffset>90</equippedAngleOffset>
+						<statBases>
+							<MarketValue>20</MarketValue>
+							<MaxHitPoints>100</MaxHitPoints>
+							<Mass>1.2</Mass>
+							<Flammability>1.0</Flammability>
+							<DeteriorationRate>0.4</DeteriorationRate>
+						</statBases>
+						<resourceReadoutPriority>Middle</resourceReadoutPriority>
+						<stackLimit>10</stackLimit>
+						<tools>
+							<li>
+								<label>point</label>
+								<capacities>
+									<li>Scratch</li>
+									<li>Stab</li>
+								</capacities>
+								<power>11</power>
+								<cooldownTime>2.2</cooldownTime>
+							</li>
+							<li>
+								<label>base</label>
+								<capacities>
+									<li>Blunt</li>
+								</capacities>
+								<power>5</power>
+								<cooldownTime>2.4</cooldownTime>
+								<chanceFactor>0.5</chanceFactor>
+							</li>
+						</tools>
+					</ThingDef>
+
+					<!--=============== Rhino horn ====================-->
+
+					<ThingDef ParentName="KKAO_HornBase">
+						<defName>KKAO_RhinocerosHorn</defName>
+						<label>rhinoceros horn</label>
+						<description>A rhinoceros' horn. Very durable and valuable. Somewhat unwieldy as a weapon.</description>
+						<graphicData>
+							<texPath>Things/Item/Special/RhinoHorn</texPath>
+							<graphicClass>Graphic_Single</graphicClass>
+						</graphicData>
+						<equippedAngleOffset>-20</equippedAngleOffset>
+						<statBases>
+							<MarketValue>100</MarketValue>
+							<MaxHitPoints>150</MaxHitPoints>
+							<Mass>1.8</Mass>							<!-- ElephantTusk's mass = 1.8 -->
+							<Flammability>1.0</Flammability>
+							<DeteriorationRate>0.5</DeteriorationRate>
+						</statBases>
+						<resourceReadoutPriority>Middle</resourceReadoutPriority>
+						<stackLimit>10</stackLimit>
+						<tools>
+							<li>
+								<label>point</label>
+								<capacities>
+									<li>Scratch</li>
+									<li>Stab</li>
+								</capacities>
+								<power>15</power>
+								<cooldownTime>2.4</cooldownTime>
+							</li>
+							<li>
+								<label>base</label>
+								<capacities>
+									<li>Blunt</li>
+								</capacities>
+								<power>8</power>
+								<cooldownTime>2.4</cooldownTime>
+								<chanceFactor>0.5</chanceFactor>
+							</li>
+						</tools>
+					</ThingDef>
+
+				</value>
+			</li>
+		</operations>
+	</Operation>
+
+</Patch>

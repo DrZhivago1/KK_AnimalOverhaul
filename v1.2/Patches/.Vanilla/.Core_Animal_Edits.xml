@@ -1,0 +1,942 @@
+<Patch>
+
+    <!--==========
+        Author Notes
+    ============-->
+    <!--
+        New Bodysize: 
+            Cat, Monkey, Thrumbo
+        New Unfertile Egg Layers: 
+            Cassowary, Emu, Iguana, Ostrich, Tortoise, Turkey
+        New Food: 
+            Elephant
+        New Herd Animals: 
+            Chicken, Chinchilla, Ostrich, Pig, Rat, Turkey, Warg, Wolves[All]
+        New Horny: 
+            Caribou, Deer, Elephant[Female], Elk, Gazelle, Ibex, Rhino
+        New Intelligence: 
+            Cat, Lynx
+        New Milkables: 
+            Deer, Ibex, Thrumbo
+        New Nuzzle:
+            Thrumbo
+        New Pack Animals: 
+            Bears[All], Caribou, Cow, Deer, Dogs[Husky, LabradorRetriever], Elk, Ostrich, Rhino, Thrumbo, Warg, Wolves[All]
+        New Shearable: 
+            Ibex, Thrumbo
+        New Wildness: 
+            Cat
+    -->
+
+    <!--==========
+        General Changes
+    ============-->
+
+    <Operation Class="PatchOperationAdd">        <!--Increase maximum amount of ingestible Kibble-->
+        <xpath>/Defs/ThingDef[defName = "Kibble"]/ingestible</xpath>
+        <value>
+            <maxNumToIngestAtOnce>200</maxNumToIngestAtOnce>
+        </value>
+    </Operation>
+
+    <Operation Class="PatchOperationAdd">        <!--Increase maximum amount of ingestible Hay-->
+        <xpath>/Defs/ThingDef[defName = "Hay"]/ingestible</xpath>
+        <value>
+            <maxNumToIngestAtOnce>200</maxNumToIngestAtOnce>
+        </value>
+    </Operation>
+
+    <!--==========
+        Alpaca (milkable)
+    ============-->
+    <!--<Operation Class="PatchOperationConditional">
+        <xpath>/Defs/ThingDef[defName = "Alpaca"]/comps</xpath>
+        <match Class="PatchOperationAdd">
+            <xpath>/Defs/ThingDef[defName = "Alpaca"]/comps</xpath>
+            <value>
+                <li Class="CompProperties_Milkable">
+                    <milkDef>Milk</milkDef>
+                    <milkIntervalDays>5</milkIntervalDays>
+                    <milkAmount>6</milkAmount>
+                </li>
+            </value>
+        </match>
+        <nomatch Class="PatchOperationAdd">
+            <xpath>/Defs/ThingDef[defName="Alpaca"]</xpath>
+            <value>
+                <comps>
+                    <li Class="CompProperties_Milkable">
+                        <milkDef>Milk</milkDef>
+                        <milkIntervalDays>5</milkIntervalDays>
+                        <milkAmount>6</milkAmount>
+                    </li>
+                </comps>
+            </value>
+        </nomatch>
+    </Operation>-->
+
+    <!--==========
+        Bears
+    ============-->
+
+    <Operation Class="PatchOperationAdd">        <!-- Pack Bears  -->
+        <xpath>/Defs/ThingDef[ @Name = "BaseBear"]/race</xpath>
+        <value>
+            <packAnimal>true</packAnimal>
+        </value>
+    </Operation>
+
+    <!--==========
+        Cat
+    ============-->
+    <Operation Class="PatchOperationSequence">
+        <operations>
+            <li Class="PatchOperationReplace">                <!-- Cat are smart  -->
+                <xpath>/Defs/ThingDef[defName = "Cat"]/race/trainability</xpath>
+                <value>
+                    <trainability>Advanced</trainability>
+                </value>
+            </li>
+            <li Class="PatchOperationReplace">                <!-- Cat are savage and independent  -->
+                <xpath>/Defs/ThingDef[defName = "Cat"]/race/wildness</xpath>
+                <value>
+                    <wildness>0.3</wildness>
+                </value>
+            </li>
+            <li Class="PatchOperationReplace">                <!-- Upping cat bodysize so it could haul a bit  -->
+                <xpath>/Defs/ThingDef[defName = "Cat"]/race/baseBodySize</xpath>
+                <value>
+                    <baseBodySize>0.4</baseBodySize>
+                </value>
+            </li>
+        </operations>
+    </Operation>
+
+    <!--==========
+        Caribou
+    ============-->
+    <Operation Class="PatchOperationSequence">
+        <operations>
+            <li Class="PatchOperationAdd">                <!-- Pack Caribou  -->
+                <xpath>/Defs/ThingDef[defName="Caribou"]/race</xpath>
+                <value>
+                    <packAnimal>true</packAnimal>
+                </value>
+            </li>
+            <li Class="PatchOperationTest">                <!-- Caribou drop horn -->
+                <xpath>/Defs/ThingDef[defName="RhinoHorn_Westerado"]</xpath>
+                <success>Invert</success>
+            </li>
+            <li Class="PatchOperationAdd">
+                <xpath>/Defs/PawnKindDef[defName = "Caribou"]/lifeStages/li[3]</xpath>
+                <value>
+                    <butcherBodyPart>
+                        <bodyPartGroup>HeadAttackTool</bodyPartGroup>
+                        <thing>KKAO_CaribouAntler</thing>
+                        <allowFemale>true</allowFemale>
+                    </butcherBodyPart>
+                </value>
+            </li>
+        </operations>
+    </Operation>
+
+    <!--==========
+        Cassowary
+    ============-->
+
+    <Operation Class="PatchOperationAdd">        <!-- Add unfertilized cassowary egg -->
+        <xpath>/Defs/ThingDef[defName = "Cassowary"]/comps/li[@Class = "CompProperties_EggLayer"]</xpath>
+        <value>
+            <eggUnfertilizedDef>EggCassowaryUnfertilized</eggUnfertilizedDef>
+        </value>
+    </Operation>
+
+    <Operation Class="PatchOperationRemove">        <!-- Remove limit on unfertilized cassowary egg  -->
+        <xpath>/Defs/ThingDef[defName = "Cassowary"]/comps/li[@Class = "CompProperties_EggLayer"]/eggProgressUnfertilizedMax</xpath>
+    </Operation>
+
+    <!--==========
+        Chicken
+    ============-->
+
+    <Operation Class="PatchOperationAdd">        <!-- Chicken are herdAnimals  -->
+        <xpath>/Defs/ThingDef[defName = "Chicken"]/race</xpath>
+        <value>
+            <herdAnimal>true</herdAnimal>
+        </value>
+    </Operation>
+
+    <!--==========
+        Chinchilla
+    ============-->
+
+    <Operation Class="PatchOperationAdd">        <!-- Chinchilla are herdAnimals  -->
+        <xpath>/Defs/ThingDef[defName = "Chinchilla"]/race</xpath>
+        <value>
+            <herdAnimal>true</herdAnimal>
+        </value>
+    </Operation>
+
+    <!--==========
+        Cow
+    ============-->
+
+    <Operation Class="PatchOperationAdd">        <!-- Pack Cow -->
+        <xpath>/Defs/ThingDef[defName="Cow"]/race</xpath>
+        <value>
+            <packAnimal>true</packAnimal>
+        </value>
+    </Operation>
+
+    <!--==========
+        Deer
+    ============-->
+
+    <Operation Class="PatchOperationSequence">
+        <success>Always</success>
+        <operations>
+            <li Class="PatchOperationAdd">                <!-- Pack Deer  -->
+                <xpath>/Defs/ThingDef[defName="Deer"]/race</xpath>
+                <value>
+                    <packAnimal>true</packAnimal>
+                </value>
+            </li>
+            <li Class="PatchOperationTest">                <!-- Deer drop antler -->
+                <xpath>/Defs/ThingDef[defName="RhinoHorn_Westerado"]</xpath>
+                <success>Invert</success>
+            </li>
+            <li Class="PatchOperationAdd">
+                <xpath>/Defs/PawnKindDef[defName = "Deer"]/lifeStages/li[3]</xpath>
+                <value>
+                    <butcherBodyPart>
+                        <bodyPartGroup>HornAttackTool</bodyPartGroup>
+                        <thing>KKAO_DeerAntler</thing>
+                        <allowFemale>false</allowFemale>
+                    </butcherBodyPart>
+                </value>
+            </li>
+        </operations>
+    </Operation>
+
+    <Operation Class="PatchOperationConditional">        <!-- Milkable Deer  -->
+        <xpath>/Defs/ThingDef[defName="Deer"]/comps</xpath>
+        <match Class="PatchOperationAdd">
+            <xpath>/Defs/ThingDef[defName="Deer"]/comps</xpath>
+            <value>
+                <li Class="CompProperties_Milkable">
+                    <milkDef>Milk</milkDef>
+                    <milkIntervalDays>2</milkIntervalDays>
+                    <milkAmount>6</milkAmount>
+                </li>
+            </value>
+        </match>
+        <nomatch Class="PatchOperationAdd">
+            <xpath>/Defs/ThingDef[defName="Deer"]</xpath>
+            <value>
+                <comps>
+                    <li Class="CompProperties_Milkable">
+                        <milkDef>Milk</milkDef>
+                        <milkIntervalDays>2</milkIntervalDays>
+                        <milkAmount>6</milkAmount>
+                    </li>
+                </comps>
+            </value>
+        </nomatch>
+    </Operation>
+
+    <!--==========
+        Dogs
+    ============-->
+
+    <Operation Class="PatchOperationAdd">        <!-- Pack Husky  -->
+        <xpath>/Defs/ThingDef[defName = "Husky"]/race</xpath>
+        <value>
+            <packAnimal>true</packAnimal>
+        </value>
+    </Operation>
+
+    <Operation Class="PatchOperationAdd">        <!-- Pack Labrador  -->
+        <xpath>/Defs/ThingDef[defName = "LabradorRetriever"]/race</xpath>
+        <value>
+            <packAnimal>true</packAnimal>
+        </value>
+    </Operation>
+
+    <!--==========
+        Elephant
+    ============-->
+
+    <Operation Class="PatchOperationReplace">        <!-- Elephant can eat trees -->
+        <xpath>/Defs/ThingDef[defName = "Elephant"]/race/foodType</xpath>
+        <value>
+            <foodType>VegetarianRoughAnimal, DendrovoreAnimal</foodType>
+        </value>
+    </Operation>
+
+    <Operation Class="PatchOperationRemove">        <!-- Female Elephant will drop tusk as well -->
+        <xpath>/Defs/PawnKindDef[defName = "Elephant"]/lifeStages/li[3]/butcherBodyPart/allowFemale</xpath>
+    </Operation>
+
+    <!--==========
+        Elk
+    ============-->
+
+    <Operation Class="PatchOperationSequence">
+        <success>Always</success>
+        <operations>
+            <li Class="PatchOperationAdd">                <!-- Pack Elk -->
+                <xpath>/Defs/ThingDef[defName="Elk"]/race</xpath>
+                <value>
+                    <packAnimal>true</packAnimal>
+                </value>
+            </li>
+            <li Class="PatchOperationTest">                <!-- Elk drop horn -->
+                <xpath>/Defs/ThingDef[defName="RhinoHorn_Westerado"]</xpath>
+                <success>Invert</success>
+            </li>
+            <li Class="PatchOperationAdd">
+                <xpath>/Defs/PawnKindDef[defName = "Elk"]/lifeStages/li[3]</xpath>
+                <value>
+                    <butcherBodyPart>
+                        <bodyPartGroup>HeadAttackTool</bodyPartGroup>
+                        <thing>KKAO_ElkAntler</thing>
+                        <allowFemale>false</allowFemale>
+                    </butcherBodyPart>
+                </value>
+            </li>
+        </operations>
+    </Operation>
+
+    <!--==========
+        Emu
+    ============-->
+
+    <Operation Class="PatchOperationAdd">        <!-- Add unfertilized emu egg -->
+        <xpath>/Defs/ThingDef[defName = "Emu"]/comps/li[@Class = "CompProperties_EggLayer"]</xpath>
+        <value>
+            <eggUnfertilizedDef>EggEmuUnfertilized</eggUnfertilizedDef>
+        </value>
+    </Operation>
+
+    <Operation Class="PatchOperationRemove">        <!-- Remove limit on unfertilized emu egg  -->
+        <xpath>/Defs/ThingDef[defName = "Emu"]/comps/li[@Class = "CompProperties_EggLayer"]/eggProgressUnfertilizedMax</xpath>
+    </Operation>
+
+    <!--==========
+        Gazelle
+    ============-->
+
+    <Operation Class="PatchOperationSequence">        <!-- Gazelle drop horn  -->
+        <success>Always</success>
+        <operations>
+            <li Class="PatchOperationTest">
+                <xpath>/Defs/ThingDef[defName="RhinoHorn_Westerado"]</xpath>
+                <success>Invert</success>
+            </li>
+            <li Class="PatchOperationAdd">
+                <xpath>/Defs/PawnKindDef[defName = "Gazelle"]/lifeStages/li[3]</xpath>
+                <value>
+                    <butcherBodyPart>
+                        <bodyPartGroup>HeadAttackTool</bodyPartGroup>
+                        <thing>KKAO_GazelleHorn</thing>
+                        <allowFemale>true</allowFemale>
+                    </butcherBodyPart>
+                </value>
+            </li>
+        </operations>
+    </Operation>
+
+    <!--==========
+        Ibex
+    ============-->
+
+    <Operation Class="PatchOperationSequence">        <!-- Ibex drop horn -->
+        <success>Always</success>
+        <operations>
+            <li Class="PatchOperationTest">
+                <xpath>/Defs/ThingDef[defName="RhinoHorn_Westerado"]</xpath>
+                <success>Invert</success>
+            </li>
+            <li Class="PatchOperationAdd">
+                <xpath>/Defs/PawnKindDef[defName = "Ibex"]/lifeStages/li[3]</xpath>
+                <value>
+                    <butcherBodyPart>
+                        <bodyPartGroup>HeadAttackTool</bodyPartGroup>
+                        <thing>KKAO_IbexHorn</thing>
+                        <allowFemale>false</allowFemale>
+                    </butcherBodyPart>
+                </value>
+            </li>
+        </operations>
+    </Operation>
+
+    <Operation Class="PatchOperationConditional">        <!-- Milkable and shearable Ibex -->
+        <xpath>/Defs/ThingDef[defName = "Ibex"]/comps</xpath>
+        <match Class="PatchOperationAdd">
+            <xpath>/Defs/ThingDef[defName = "Ibex"]/comps</xpath>
+            <value>
+                <li Class="CompProperties_Milkable">
+                    <milkDef>Milk</milkDef>
+                    <milkIntervalDays>2</milkIntervalDays>
+                    <milkAmount>6</milkAmount>
+                </li>
+                <li Class="CompProperties_Shearable">
+                    <woolDef>KKAO_WoolIbex</woolDef>
+                    <shearIntervalDays>10</shearIntervalDays>
+                    <woolAmount>25</woolAmount>
+                </li>
+            </value>
+        </match>
+        <nomatch Class="PatchOperationAdd">
+            <xpath>/Defs/ThingDef[defName="Ibex"]</xpath>
+            <value>
+                <comps>
+                    <li Class="CompProperties_Milkable">
+                        <milkDef>Milk</milkDef>
+                        <milkIntervalDays>2</milkIntervalDays>
+                        <milkAmount>6</milkAmount>
+                    </li>
+                    <li Class="CompProperties_Shearable">
+                        <woolDef>KKAO_WoolIbex</woolDef>
+                        <shearIntervalDays>10</shearIntervalDays>
+                        <woolAmount>25</woolAmount>
+                    </li>
+                </comps>
+            </value>
+        </nomatch>
+    </Operation>
+
+    <!--==========
+        Iguana
+    ============-->
+
+    <Operation Class="PatchOperationAdd">        <!-- Add unfertilized iguana egg -->
+        <xpath>/Defs/ThingDef[defName = "Iguana"]/comps/li[@Class = "CompProperties_EggLayer"]</xpath>
+        <value>
+            <eggUnfertilizedDef>EggIguanaUnfertilized</eggUnfertilizedDef>
+        </value>
+    </Operation>
+
+    <Operation Class="PatchOperationRemove">        <!-- Remove limit on unfertilized iguana egg  -->
+        <xpath>/Defs/ThingDef[defName = "Iguana"]/comps/li[@Class = "CompProperties_EggLayer"]/eggProgressUnfertilizedMax</xpath>
+    </Operation>
+
+    <!--==========
+        Lynx
+    ============-->
+
+    <Operation Class="PatchOperationAdd">        <!-- Lynx are smart -->
+        <xpath>/Defs/ThingDef[defName = "Lynx"]/race</xpath>
+        <value>
+            <trainability>Advanced</trainability>
+        </value>
+    </Operation>
+
+    <!--==========
+        Monkey
+    ============-->
+
+    <Operation Class="PatchOperationReplace">        <!-- Upping bodysize a bit for them to be eligible to haul training-->
+        <xpath>/Defs/ThingDef[defName = "Monkey"]/race/baseBodySize</xpath>
+        <value>
+            <baseBodySize>0.4</baseBodySize>
+        </value>
+    </Operation>
+
+    <!--==========
+        Ostrich
+    ============-->
+
+    <Operation Class="PatchOperationSequence">
+        <success>Always</success>
+        <operations>
+            <li Class="PatchOperationAdd">                <!-- Pack Ostrich -->
+                <xpath>/Defs/ThingDef[defName="Ostrich"]/race</xpath>
+                <value>
+                    <packAnimal>true</packAnimal>
+                </value>
+            </li>
+            <li Class="PatchOperationReplace">                <!-- Ostrich are herdAnimals  -->
+                <xpath>/Defs/ThingDef[defName = "Ostrich"]/race/herdAnimal</xpath>
+                <value>
+                    <herdAnimal>true</herdAnimal>
+                </value>
+            </li>
+        </operations>
+    </Operation>
+
+    <Operation Class="PatchOperationAdd">        <!-- Add unfertilized ostrich egg -->
+        <xpath>/Defs/ThingDef[defName = "Ostrich"]/comps/li[@Class = "CompProperties_EggLayer"]</xpath>
+        <value>
+            <eggUnfertilizedDef>EggOstrichUnfertilized</eggUnfertilizedDef>
+        </value>
+    </Operation>
+
+    <Operation Class="PatchOperationRemove">        <!-- Remove limit on unfertilized ostrich egg  -->
+        <xpath>/Defs/ThingDef[defName = "Ostrich"]/comps/li[@Class = "CompProperties_EggLayer"]/eggProgressUnfertilizedMax</xpath>
+    </Operation>
+
+    <!--==========
+        Pig
+    ============-->
+
+    <Operation Class="PatchOperationAdd">        <!-- Pig are herdAnimals  -->
+        <xpath>/Defs/ThingDef[defName = "Pig"]/race</xpath>
+        <value>
+            <herdAnimal>true</herdAnimal>
+        </value>
+    </Operation>
+
+    <!--==========
+        Rat
+    ============-->
+
+    <Operation Class="PatchOperationAdd">        <!-- Rat are herdAnimals  -->
+        <xpath>/Defs/ThingDef[defName = "Rat"]/race</xpath>
+        <value>
+            <herdAnimal>true</herdAnimal>
+        </value>
+    </Operation>
+
+    <!--==========
+        Rhino
+    ============-->
+
+    <Operation Class="PatchOperationSequence">
+        <success>Always</success>
+        <operations>
+            <li Class="PatchOperationAdd">                <!-- Pack Rhinos  -->
+                <xpath>/Defs/ThingDef[defName="Rhinoceros"]/race</xpath>
+                <value>
+                    <packAnimal>true</packAnimal>
+                </value>
+            </li>
+            <li Class="PatchOperationTest">                <!-- Rhino drop horn  -->
+                <xpath>/Defs/ThingDef[defName="RhinoHorn_Westerado"]</xpath>
+                <success>Invert</success>
+            </li>
+            <li Class="PatchOperationAdd">
+                <xpath>/Defs/PawnKindDef[defName = "Rhinoceros"]/lifeStages/li[3]</xpath>
+                <value>
+                    <butcherBodyPart>
+                        <bodyPartGroup>HornAttackTool</bodyPartGroup>
+                        <thing>KKAO_RhinocerosHorn</thing>
+                        <allowFemale>true</allowFemale>
+                    </butcherBodyPart>
+                </value>
+            </li>
+        </operations>
+    </Operation>
+
+    <!--==========
+        Thrumbo
+    ============-->
+    <Operation Class="PatchOperationConditional">        <!-- Shearable, Packable, and Milkable Thrumbos -->
+        <xpath>/Defs/ThingDef[defName = "Thrumbo"]/comps</xpath>
+        <match Class="PatchOperationAdd">
+            <xpath>/Defs/ThingDef[defName = "Thrumbo"]/comps</xpath>
+            <value>
+                <li Class="CompProperties_Shearable">
+                    <woolDef>KKAO_ThrumboWool</woolDef>
+                    <shearIntervalDays>50</shearIntervalDays>
+                    <woolAmount>200</woolAmount>
+                </li>
+                <li Class="CompProperties_Milkable">
+                    <milkDef>KKAO_ThrumboMilk</milkDef>
+                    <milkIntervalDays>25</milkIntervalDays>
+                    <milkAmount>10</milkAmount>
+                </li>
+            </value>
+        </match>
+        <nomatch Class="PatchOperationAdd">
+            <xpath>/Defs/ThingDef[defName="Thrumbo"]</xpath>
+            <value>
+                <comps>
+                    <li Class="CompProperties_Shearable">
+                        <woolDef>KKAO_ThrumboWool</woolDef>
+                        <shearIntervalDays>50</shearIntervalDays>
+                        <woolAmount>200</woolAmount>
+                    </li>
+                    <li Class="CompProperties_Milkable">
+                        <milkDef>KKAO_ThrumboMilk</milkDef>
+                        <milkIntervalDays>25</milkIntervalDays>
+                        <milkAmount>10</milkAmount>
+                    </li>
+                </comps>
+            </value>
+        </nomatch>
+    </Operation>
+
+    <Operation Class="PatchOperationReplace">
+        <xpath>/Defs/ThingDef[defName = "Thrumbo"]/race/baseBodySize</xpath>
+        <value>
+            <baseBodySize>6</baseBodySize>
+        </value>
+    </Operation>
+
+    <Operation Class="PatchOperationAdd">
+        <xpath>/Defs/ThingDef[defName = "Thrumbo"]/race</xpath>
+        <value>
+            <packAnimal>true</packAnimal>
+            <nuzzleMtbHours>100</nuzzleMtbHours>
+            <nameOnNuzzleChance>1</nameOnNuzzleChance>
+            <manhunterOnTameFailChance>0.10</manhunterOnTameFailChance>
+        </value>
+    </Operation>
+
+    <!--==========
+        Tortoise
+    ============-->
+
+    <Operation Class="PatchOperationAdd">        <!-- Add unfertilized tortoise egg -->
+        <xpath>/Defs/ThingDef[defName = "Tortoise"]/comps/li[@Class = "CompProperties_EggLayer"]</xpath>
+        <value>
+            <eggUnfertilizedDef>EggTortoiseUnfertilized</eggUnfertilizedDef>
+        </value>
+    </Operation>
+
+    <Operation Class="PatchOperationRemove">        <!-- Remove limit on unfertilized tortoise egg  -->
+        <xpath>/Defs/ThingDef[defName = "Tortoise"]/comps/li[@Class = "CompProperties_EggLayer"]/eggProgressUnfertilizedMax</xpath>
+    </Operation>
+
+    <!--==========
+        Turkey
+    ============-->
+
+    <Operation Class="PatchOperationReplace">        <!-- Turkey are herdAnimals  -->
+        <xpath>/Defs/ThingDef[defName = "Turkey"]/race/herdAnimal</xpath>
+        <value>
+            <herdAnimal>true</herdAnimal>
+        </value>
+    </Operation>
+
+    <Operation Class="PatchOperationAdd">        <!-- Add unfertilized turkey egg -->
+        <xpath>/Defs/ThingDef[defName = "Turkey"]/comps/li[@Class = "CompProperties_EggLayer"]</xpath>
+        <value>
+            <eggUnfertilizedDef>EggTurkeyUnfertilized</eggUnfertilizedDef>
+        </value>
+    </Operation>
+
+    <Operation Class="PatchOperationRemove">        <!-- Remove limit on unfertilized turkey egg  -->
+        <xpath>/Defs/ThingDef[defName = "Turkey"]/comps/li[@Class = "CompProperties_EggLayer"]/eggProgressUnfertilizedMax</xpath>
+    </Operation>
+
+    <!--==========
+        Warg
+    ============-->
+
+    <Operation Class="PatchOperationAdd">        <!-- Pack Warg  -->
+        <xpath>/Defs/ThingDef[defName = "Warg"]/race</xpath>
+        <value>
+            <packAnimal>true</packAnimal>
+        </value>
+    </Operation>
+
+    <Operation Class="PatchOperationAdd">        <!-- Warg are herdAnimals  -->
+        <xpath>/Defs/ThingDef[defName = "Warg"]/race</xpath>
+        <value>
+            <herdAnimal>true</herdAnimal>
+        </value>
+    </Operation>
+
+    <!--==========
+        Wolves
+    ============-->
+
+    <Operation Class="PatchOperationAdd">        <!-- Pack Wolves  -->
+        <xpath>/Defs/ThingDef[@Name = "ThingBaseWolf"]/race</xpath>
+        <value>
+            <packAnimal>true</packAnimal>
+        </value>
+    </Operation>
+
+    <Operation Class="PatchOperationAdd">        <!-- All wolves are herdAnimals  -->
+        <xpath>/Defs/ThingDef[@Name = "ThingBaseWolf"]/race</xpath>
+        <value>
+            <herdAnimal>true</herdAnimal>
+        </value>
+    </Operation>
+
+
+	<!--	New stuff down here		-->
+	
+	<!--==========
+        Cow, again
+    ============-->
+
+    <Operation Class="PatchOperationReplace">        <!-- Higher hunger rate -->
+        <xpath>/Defs/ThingDef[defName="Cow"]/race/baseHungerRate</xpath>
+        <value>
+		<baseHungerRate>1</baseHungerRate>
+        </value>
+    </Operation>
+
+	<!--==========
+        Dromedary
+    ============-->
+
+	    <Operation Class="PatchOperationConditional">        <!-- Dromedary shearable, again -->
+        <xpath>/Defs/ThingDef[defName = "Dromedary"]/comps</xpath>
+        <match Class="PatchOperationAdd">
+            <xpath>/Defs/ThingDef[defName = "Dromedary"]/comps</xpath>
+            <value>
+                <li Class="CompProperties_Shearable">
+                    <woolDef>KKAO_WoolCamel</woolDef>
+                    <shearIntervalDays>25</shearIntervalDays>
+                    <woolAmount>75</woolAmount>
+                </li>
+            </value>
+        </match>
+        <nomatch Class="PatchOperationAdd">
+            <xpath>/Defs/ThingDef[defName="Dromedary"]</xpath>
+            <value>
+                <comps>
+                    <li Class="CompProperties_Shearable">
+                        <woolDef>KKAO_WoolCamel</woolDef>
+                        <shearIntervalDays>25</shearIntervalDays>
+                        <woolAmount>75</woolAmount>
+                    </li>
+                </comps>
+            </value>
+        </nomatch>
+    </Operation>
+
+	<!--==========
+        Yak
+    ============-->
+
+	    <Operation Class="PatchOperationConditional">        <!-- Shearable Yaks -->
+        <xpath>/Defs/ThingDef[defName = "Yak"]/comps</xpath>
+        <match Class="PatchOperationAdd">
+            <xpath>/Defs/ThingDef[defName = "Yak"]/comps</xpath>
+            <value>
+                <li Class="CompProperties_Shearable">
+                    <woolDef>KKAO_WoolYak</woolDef>
+                    <shearIntervalDays>25</shearIntervalDays>
+                    <woolAmount>100</woolAmount>
+                </li>
+            </value>
+        </match>
+        <nomatch Class="PatchOperationAdd">
+            <xpath>/Defs/ThingDef[defName="Yak"]</xpath>
+            <value>
+                <comps>
+                    <li Class="CompProperties_Shearable">
+                        <woolDef>KKAO_WoolYak</woolDef>
+                        <shearIntervalDays>25</shearIntervalDays>
+                        <woolAmount>100</woolAmount>
+                    </li>
+                </comps>
+            </value>
+        </nomatch>
+    </Operation>
+	
+	<!--==========
+        Muffalo
+    ============-->
+
+    <Operation Class="PatchOperationConditional">       <!-- Milkable Muffalos, wool adjustment-->
+        <xpath>/Defs/ThingDef[defName = "Muffalo"]/comps</xpath>
+        <match Class="PatchOperationReplace">
+            <xpath>/Defs/ThingDef[defName = "Muffalo"]/comps</xpath>
+            <value>
+                <comps>
+                    <li Class="CompProperties_Milkable">
+                        <milkDef>Milk</milkDef>
+                        <milkIntervalDays>2</milkIntervalDays>
+                        <milkAmount>6</milkAmount>
+                    </li>
+					<li Class="CompProperties_Shearable">
+						<woolDef>WoolMuffalo</woolDef>
+						<shearIntervalDays>25</shearIntervalDays>
+						<woolAmount>125</woolAmount>
+					</li>
+                </comps>
+            </value>
+        </match>
+        <nomatch Class="PatchOperationAdd">
+            <xpath>/Defs/ThingDef[defName="Muffalo"]</xpath>
+            <value>
+                <comps>
+                    <li Class="CompProperties_Milkable">
+                        <milkDef>Milk</milkDef>
+                        <milkIntervalDays>2</milkIntervalDays>
+                        <milkAmount>6</milkAmount>
+                    </li>
+					<li Class="CompProperties_Shearable">
+						<woolDef>WoolMuffalo</woolDef>
+						<shearIntervalDays>25</shearIntervalDays>
+						<woolAmount>125</woolAmount>
+					</li>
+                </comps>
+            </value>
+        </nomatch>
+    </Operation>
+
+	<!--==========
+        Bison
+    ============-->
+
+    <Operation Class="PatchOperationConditional">       <!-- Milkable Bisons, wool adjustment-->
+        <xpath>/Defs/ThingDef[defName = "Bison"]/comps</xpath>
+        <match Class="PatchOperationReplace">
+            <xpath>/Defs/ThingDef[defName = "Bison"]/comps</xpath>
+            <value>
+                <comps>
+                    <li Class="CompProperties_Milkable">
+                        <milkDef>Milk</milkDef>
+                        <milkIntervalDays>2</milkIntervalDays>
+                        <milkAmount>6</milkAmount>
+                    </li>
+					<li Class="CompProperties_Shearable">
+						<woolDef>WoolBison</woolDef>
+						<shearIntervalDays>25</shearIntervalDays>
+						<woolAmount>125</woolAmount>
+					</li>
+                </comps>
+            </value>
+        </match>
+        <nomatch Class="PatchOperationAdd">
+            <xpath>/Defs/ThingDef[defName="Bison"]</xpath>
+            <value>
+                <comps>
+                    <li Class="CompProperties_Milkable">
+                        <milkDef>Milk</milkDef>
+                        <milkIntervalDays>2</milkIntervalDays>
+                        <milkAmount>6</milkAmount>
+                    </li>
+					<li Class="CompProperties_Shearable">
+						<woolDef>WoolBison</woolDef>
+						<shearIntervalDays>25</shearIntervalDays>
+						<woolAmount>125</woolAmount>
+					</li>
+                </comps>
+            </value>
+        </nomatch>
+    </Operation>
+
+	<!--==========
+        Sheep
+    ============-->
+
+    <Operation Class="PatchOperationConditional">       <!-- Sheep wool adjustment-->
+        <xpath>/Defs/ThingDef[defName = "Sheep"]/comps</xpath>
+        <match Class="PatchOperationReplace">
+            <xpath>/Defs/ThingDef[defName = "Sheep"]/comps</xpath>
+            <value>
+                <comps>
+					<li Class="CompProperties_Shearable">
+						<woolDef>WoolSheep</woolDef>
+						<shearIntervalDays>10</shearIntervalDays>
+						<woolAmount>70</woolAmount>
+					</li>
+                </comps>
+            </value>
+        </match>
+        <nomatch Class="PatchOperationAdd">
+            <xpath>/Defs/ThingDef[defName="Sheep"]</xpath>
+            <value>
+                <comps>
+					<li Class="CompProperties_Shearable">
+						<woolDef>WoolSheep</woolDef>
+						<shearIntervalDays>10</shearIntervalDays>
+						<woolAmount>70</woolAmount>
+					</li>
+                </comps>
+            </value>
+        </nomatch>
+    </Operation>
+
+	<!--==========
+        Goat
+    ============-->
+
+    <Operation Class="PatchOperationConditional">       <!-- Goat milk adjustment-->
+        <xpath>/Defs/ThingDef[defName = "Goat"]/comps</xpath>
+        <match Class="PatchOperationReplace">
+            <xpath>/Defs/ThingDef[defName = "Goat"]/comps</xpath>
+            <value>
+                <comps>
+                    <li Class="CompProperties_Milkable">
+                        <milkDef>Milk</milkDef>
+                        <milkIntervalDays>2</milkIntervalDays>
+                        <milkAmount>18</milkAmount>
+                    </li>
+                </comps>
+            </value>
+        </match>
+        <nomatch Class="PatchOperationAdd">
+            <xpath>/Defs/ThingDef[defName="Goat"]</xpath>
+            <value>
+                <comps>
+                    <li Class="CompProperties_Milkable">
+                        <milkDef>Milk</milkDef>
+                        <milkIntervalDays>2</milkIntervalDays>
+                        <milkAmount>18</milkAmount>
+                    </li>
+                </comps>
+            </value>
+        </nomatch>
+    </Operation>
+
+    <!--==========
+        Horse
+	============-->
+
+    <Operation Class="PatchOperationConditional">        <!-- Milkable Horse  -->
+        <xpath>/Defs/ThingDef[defName="Horse"]/comps</xpath>
+        <match Class="PatchOperationAdd">
+            <xpath>/Defs/ThingDef[defName="Horse"]/comps</xpath>
+            <value>
+                <li Class="CompProperties_Milkable">
+                    <milkDef>Milk</milkDef>
+                    <milkIntervalDays>2</milkIntervalDays>
+                    <milkAmount>6</milkAmount>
+                </li>
+            </value>
+        </match>
+        <nomatch Class="PatchOperationAdd">
+            <xpath>/Defs/ThingDef[defName="Horse"]</xpath>
+            <value>
+                <comps>
+                    <li Class="CompProperties_Milkable">
+                        <milkDef>Milk</milkDef>
+                        <milkIntervalDays>2</milkIntervalDays>
+                        <milkAmount>6</milkAmount>
+                    </li>
+                </comps>
+            </value>
+        </nomatch>
+    </Operation>
+
+    <!--==========
+        Donkey
+	============-->
+
+    <Operation Class="PatchOperationConditional">        <!-- Milkable Donkey  -->
+        <xpath>/Defs/ThingDef[defName="Donkey"]/comps</xpath>
+        <match Class="PatchOperationAdd">
+            <xpath>/Defs/ThingDef[defName="Donkey"]/comps</xpath>
+            <value>
+                <li Class="CompProperties_Milkable">
+                    <milkDef>Milk</milkDef>
+                    <milkIntervalDays>2</milkIntervalDays>
+                    <milkAmount>6</milkAmount>
+                </li>
+            </value>
+        </match>
+        <nomatch Class="PatchOperationAdd">
+            <xpath>/Defs/ThingDef[defName="Donkey"]</xpath>
+            <value>
+                <comps>
+                    <li Class="CompProperties_Milkable">
+                        <milkDef>Milk</milkDef>
+                        <milkIntervalDays>2</milkIntervalDays>
+                        <milkAmount>6</milkAmount>
+                    </li>
+                </comps>
+            </value>
+        </nomatch>
+    </Operation>
+
+</Patch>

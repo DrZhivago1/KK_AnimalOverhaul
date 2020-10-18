@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!--=====================================================================-->
+  <!--=============================== Eggs ================================-->
+  <!--=====================================================================-->
+
+  <!-- Iguana -->
+  <ThingDef ParentName="EggUnfertBase">
+    <defName>EggIguanaUnfertilized</defName>
+    <label>iguana egg (unfert.)</label>
+    <description>Unfertilized iguana egg. It can be eaten raw, but it's much, much better cooked.</description>
+    <graphicData>
+      <texPath>Things/Item/Resource/AnimalProductRaw/EggOval</texPath>
+      <color>(245,245,245)</color>
+    </graphicData>
+    <statBases>
+      <MarketValue>10</MarketValue>
+    </statBases>
+  </ThingDef>
+
+  <!-- Tortoise -->
+  <ThingDef ParentName="EggUnfertBase">
+    <defName>EggTortoiseUnfertilized</defName>
+    <label>tortoise egg (unfert.)</label>
+    <description>Unfertilized tortoise egg. It can be eaten raw, but it's much, much better cooked.</description>
+    <graphicData>
+      <texPath>Things/Item/Resource/AnimalProductRaw/EggRound</texPath>
+      <color>(245,245,245)</color>
+      <drawSize>0.8</drawSize>
+    </graphicData>
+    <statBases>
+      <MarketValue>10</MarketValue>
+    </statBases>
+  </ThingDef>
+
+  <!-- Cassowary -->
+  <ThingDef ParentName="EggUnfertBase">
+    <defName>EggCassowaryUnfertilized</defName>
+    <label>cassowary egg (unfert.)</label>
+    <description>Unfertilized cassowary egg. It can be eaten raw, but it's much, much better cooked.</description>
+    <graphicData>
+      <color>(125,138,97)</color>
+      <drawSize>1.2</drawSize>
+    </graphicData>
+    <statBases>
+      <MarketValue>10</MarketValue>
+    </statBases>
+  </ThingDef>
+
+  <!-- Emu -->
+  <ThingDef ParentName="EggUnfertBase">
+    <defName>EggEmuUnfertilized</defName>
+    <label>emu egg (unfert.)</label>
+    <description>Unfertilized emu egg. It can be eaten raw, but it's much, much better cooked.</description>
+    <graphicData>
+      <color>(48,104,100)</color>
+      <drawSize>1.2</drawSize>
+    </graphicData>
+    <statBases>
+      <MarketValue>10</MarketValue>
+    </statBases>
+  </ThingDef>
+  
+  <!-- Ostrich -->
+  <ThingDef ParentName="EggUnfertBase">
+    <defName>EggOstrichUnfertilized</defName>
+    <label>ostrich egg (unfert.)</label>
+    <description>Unfertilized ostrich egg. It can be eaten raw, but it's much, much better cooked.</description>
+    <graphicData>
+      <color>(230,230,230)</color>
+      <drawSize>1.3</drawSize>
+    </graphicData>
+    <statBases>
+      <MarketValue>10</MarketValue>
+    </statBases>
+  </ThingDef>
+
+  <!-- Turkey -->
+  <ThingDef ParentName="EggUnfertBase">
+    <defName>EggTurkeyUnfertilized</defName>
+    <label>turkey egg (unfert.)</label>
+    <description>Unfertilized turkey egg. It can be eaten raw, but it's much, much better cooked.</description>
+    <graphicData>
+      <color>(236,217,184)</color>
+      <drawSize>1.1</drawSize>
+    </graphicData>
+    <statBases>
+      <MarketValue>10</MarketValue>
+    </statBases>
+  </ThingDef>   
+
+</Defs>
